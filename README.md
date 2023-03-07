@@ -13,6 +13,7 @@
 - Create Baseline models
 - Data exploration
 - Missing values
+- outliers
 - Feature engineering
 - Modelling
 - ...
