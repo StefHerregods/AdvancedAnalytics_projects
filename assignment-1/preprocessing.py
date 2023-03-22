@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import re
 
 def clean_data(df):
 
@@ -40,6 +41,9 @@ def clean_data(df):
 
     # Drop text
     df = df.select_dtypes(include=np.number)
+
+    # Replace text symbols with underscore
+    df = df.rename(columns = lambda x:re.sub('[^A-Za-z0-9_]+', '', x))
 
     # Return the cleaned dataframe
     return df
@@ -85,39 +89,6 @@ def simple_clean(df):
     
     # One-hot encode columns: 'property_type', 'property_room_type'
     df = pd.get_dummies(df, columns=['property_type', 'property_room_type'])
-
-    # Scale columns 'property_max_guests', 'property_bathrooms' and 13 other columns between 0 and 1
-    new_min, new_max = 0, 1
-    old_min, old_max = df['property_max_guests'].min(), df['property_max_guests'].max()
-    df['property_max_guests'] = (df['property_max_guests'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
-    old_min, old_max = df['property_bathrooms'].min(), df['property_bathrooms'].max()
-    df['property_bathrooms'] = (df['property_bathrooms'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
-    old_min, old_max = df['property_bedrooms'].min(), df['property_bedrooms'].max()
-    df['property_bedrooms'] = (df['property_bedrooms'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
-    old_min, old_max = df['property_beds'].min(), df['property_beds'].max()
-    df['property_beds'] = (df['property_beds'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
-    old_min, old_max = df['booking_min_nights'].min(), df['booking_min_nights'].max()
-    df['booking_min_nights'] = (df['booking_min_nights'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
-    old_min, old_max = df['booking_max_nights'].min(), df['booking_max_nights'].max()
-    df['booking_max_nights'] = (df['booking_max_nights'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
-    old_min, old_max = df['reviews_num'].min(), df['reviews_num'].max()
-    df['reviews_num'] = (df['reviews_num'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
-    old_min, old_max = df['reviews_rating'].min(), df['reviews_rating'].max()
-    df['reviews_rating'] = (df['reviews_rating'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
-    old_min, old_max = df['reviews_acc'].min(), df['reviews_acc'].max()
-    df['reviews_acc'] = (df['reviews_acc'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
-    old_min, old_max = df['reviews_cleanliness'].min(), df['reviews_cleanliness'].max()
-    df['reviews_cleanliness'] = (df['reviews_cleanliness'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
-    old_min, old_max = df['reviews_checkin'].min(), df['reviews_checkin'].max()
-    df['reviews_checkin'] = (df['reviews_checkin'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
-    old_min, old_max = df['reviews_communication'].min(), df['reviews_communication'].max()
-    df['reviews_communication'] = (df['reviews_communication'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
-    old_min, old_max = df['reviews_location'].min(), df['reviews_location'].max()
-    df['reviews_location'] = (df['reviews_location'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
-    old_min, old_max = df['reviews_value'].min(), df['reviews_value'].max()
-    df['reviews_value'] = (df['reviews_value'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
-    old_min, old_max = df['reviews_per_month'].min(), df['reviews_per_month'].max()
-    df['reviews_per_month'] = (df['reviews_per_month'] - old_min) / (old_max - old_min) * (new_max - new_min) + new_min
 
     # Drop text
     df = df.select_dtypes(include=np.number)
