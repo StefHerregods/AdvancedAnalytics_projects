@@ -1,5 +1,7 @@
 pandas
 numpy
 keras
-tensorflow
+tensorflow==2.10
 jupyter
+pillow
+scipy

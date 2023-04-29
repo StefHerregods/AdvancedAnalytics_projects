@@ -3,3 +3,5 @@
 images/
 __*
 dataset.json
+*.h5
+
