@@ -1,5 +1,8 @@
 .*/
 .ipynb_checkpoints
 images/
+images_food-nonfood/
 __*
 dataset.json
+*.h5
+*.hdf5
