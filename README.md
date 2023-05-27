@@ -14,8 +14,8 @@
 
 
 ## Assignment 3 - Predicting on Streamed Textual Data
-- **Task**:
-- **Approaches**:
+- **Task**: Predicting up- or downvote of steam-reviews on streamed data
+- **Approaches**: TF-IDF followed by logistic regression
 
 
 ## Assignment 4 - Exploring Graphs with Cypher and Gephi
