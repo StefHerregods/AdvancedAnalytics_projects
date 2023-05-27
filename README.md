@@ -1,19 +1,26 @@
 # Advanced Analytics in Business: Assignments
 
-## Assignment 1 - predictive modelling
-
-### Summary
+## Assignment 1 - Predictive Modeling
 - **Task**: Construct a predictive model to predict the "price per night" of Airbnb properties in Belgium.
-- **Evaluation**: RMSE
-- **Leaderboard**: http://seppe.net/aa/assignment1/
-- **Inspiration**:
-  - Kaggle house price prediction: https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview
-  - ...
-### To-do
-- Create Baseline models
-- Data exploration
-- Missing values
-- outliers
-- Feature engineering
-- Modelling
-- ...
+- **Approaches**: Exploratory data analysis, linear models, SVM, gradient boosting, simple neural networks, mean-based prediction.
+
+
+## Assignment 2 - Deep Learning on Images
+- **Task**: Use deep learning to classify restaurant images based on a selected criterion.
+- **Approaches**: 
+  - Binary classification by finetuning a pre-trained ResNet50 model after manual labeling. 
+  - Filtering dataset based on own classifier
+  - Classification using filtered dataset
+
+
+## Assignment 3 - Predicting on Streamed Textual Data
+- **Task**:
+- **Approaches**:
+
+
+## Assignment 4 - Exploring Graphs with Cypher and Gephi
+- **Task**: Explore a graph database and report on some interesting findings
+- **Approaches**:
+  - Filtering using Cypher queries
+  - Community detection in Gephi
+  - Visualization in Gephi
